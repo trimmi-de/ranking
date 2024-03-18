@@ -1,1 +1,9 @@
-{{player_ratings}}
+<p>{{ player_ratings }}</p>
+<p>
+{% for rating in player_ratings %}
+    {{ rating.player }}, {{ rating.trueskill_mu }}, {{ rating.trueskill_sigma }}<br>
+{% empty %}
+    No player rankings available
+{% endfor %}
+</p>
+<a href="{% url 'rankings:create_match' %}">New match</a>
